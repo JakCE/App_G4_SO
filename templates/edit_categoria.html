@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="form-add">
+    <div class="head">
+        <H1>EDITAR CATEGORIA</h1>
+    </div>
+    <form action="/update_categoria/{{categoria.0}}" class="form-body" method="POST">
+        <div class="inputs-form">
+            <input type="text" name="nombre" placeholder="nombre" value="{{categoria.1}}">
+            <input type="text" name="descripcion" placeholder="descripcion" value="{{categoria.2}}">
+        </div>
+        <div class="btn-form">
+            <button type="submit" class="submit-btn">
+                <span>Edit</span>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -16,7 +16,6 @@
             </div>
             <form action="/add_cliente" class="form-body" method="POST">
                 <div class="inputs-form">
-                    <input type="text" name="id" placeholder="Id">
                     <input type="text" name="nombres" placeholder="Nombres">
                     <input type="text" name="apellidos" placeholder="Apellidos">
                     <input type="text" name="celular" placeholder="Celular">
@@ -36,7 +35,6 @@
             </div>
             <form action="/add_categoria" class="form-body" method="POST">
                 <div class="inputs-form">
-                    <input type="text" name="id" placeholder="Id">
                     <input type="text" name="nombre" placeholder="Nombre">
                     <input type="text" name="descripcion" placeholder="Descripción">
                 </div>
@@ -53,7 +51,6 @@
             </div>
             <form action="/add_venta" class="form-body" method="POST">
                 <div class="inputs-form">
-                    <input type="text" name="id_ven" placeholder="id venta">
                     <select name="id_prod" id="" class="id_prod">
                         <option>Producto 1</option>
                     </select>
@@ -79,7 +76,6 @@
             </div>
             <form action="/add_producto" class="form-body" method="POST">
                 <div class="inputs-form">
-                    <input type="text" name="id" placeholder="Id">
                     <input type="text" name="descripcion" placeholder="descripcion">
                     <input type="text" name="precio" placeholder="precio">
                     <input type="text" name="marca" placeholder="marca">
@@ -97,11 +93,11 @@
         </div>
     </div>
     <div class="tables">
-        <div class="clientes">
+        <div class="tablas-cont">
             <div class="title-table">
                 <h2>LISTA DE CLIENTES</h2>
             </div>
-            <table class="tb-clientes-desc">
+            <table class="tb-desc">
                 <thead>
                     <tr>
                         <td>Nombres</td>
@@ -121,8 +117,34 @@
                         <td>{{cliente.4}}</td>
                         <td>{{cliente.5}}</td>
                         <td>
-                            <a href="/edit/{{cliente.0}}" class="btn-edit">Edit</a>
-                            <a href="/delete/{{cliente.0}}" class="btn-delete">Delete</a>
+                            <a href="/edit_cliente/{{cliente.0}}" class="btn-edit">Edit</a>
+                            <a href="/delete_cliente/{{cliente.0}}" class="btn-delete">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tablas-cont">
+            <div class="title-table">
+                <h2>LISTA DE CATEGORIAS</h2>
+            </div>
+            <table class="tb-desc">
+                <thead>
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Descripcion</td>
+                        <td>Operations</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in Categoria %}
+                    <tr>
+                        <td>{{categoria.1}}</td>
+                        <td>{{categoria.2}}</td>
+                        <td>
+                            <a href="/edit_categoria/{{categoria.0}}" class="btn-edit">Edit</a>
+                            <a href="/delete_categoria/{{categoria.0}}" class="btn-delete">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}
