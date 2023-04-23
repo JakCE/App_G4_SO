@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+.body-desc{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+input{
+    margin: 5px;
+}
+.form-add{
+    margin: 30px;
+    display: block;
+    align-items:center;
+    justify-content:center;
+    border: solid 1.5px brown;
+    border-radius: 5px;
+}
+button{
+    padding: 6px;
+    border: solid 1px #f86161;
+    border-radius: 5px;
+    background-color: transparent;
+}
+h1{
+    margin: 10px;
+    font-size: 20px;
+    justify-content: center;
+}
+.form-body{
+    margin: 15px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
