@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
-#18.207.189.64
+
 # MySQL connection
-app.config['MYSQL_HOST'] = '18.207.189.64'
+app.config['MYSQL_HOST'] = '3.84.43.215'
 app.config['MYSQL_USER'] = 'support'
 app.config['MYSQL_PASSWORD'] = 'grupo4password'
 app.config['MYSQL_DB'] = 'project_G4'
@@ -15,10 +15,10 @@ app.secret_key = 'mysecretkey'
 
 @app.route('/')
 def Index():
-    #cur = mysql.connection.cursor()
-    #cur.execute('SELECT * FROM contacts')
-    #data=cur.fetchall()
-    return render_template('index.html')#, contacts = data)
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM Cliente')
+    data=cur.fetchall()
+    return render_template('index.html', Cliente = data)
 
 @app.route('/add_cliente', methods=['POST'])
 def add_cliente():
@@ -84,27 +84,32 @@ def add_venta():
         return redirect(url_for('Index')) #Redirecciona a pagina Index
 
 @app.route('/edit/<id>')
-def get_contact(id):
+def get_cliente(id):
     cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM contacts WHERE id = %s', (id))
+    cur.execute('SELECT * FROM Cliente WHERE id_cliente = %s', (id))
+    print(id)
     data = cur.fetchall()
     print(data[0])
-    return render_template('edit-contact.html', contact = data[0])
+    return render_template('edit_cliente.html', cliente = data[0])
 
 @app.route('/update/<id>', methods = ['POST'])
-def update_contact(id):
+def update_cliente(id):
     if request.method == 'POST':
-        fullname = request.form['fullname']
-        phone = request.form['phone']
+        nombres = request.form['nombres'] # request.form recoge datos de formulario
+        apellidos = request.form['apellidos']
+        celular = request.form['celular']
         email = request.form['email']
+        direccion = request.form['direccion']
         cur = mysql.connection.cursor()
         cur.execute("""
-        UPDATE contacts
-        SET fullname = %s,
+        UPDATE Cliente
+        SET nombres = %s,
+            apellidos = %s,
+            n_celular = %s,
             email = %s,
-            phone = %s
-        WHERE id = %s
-        """, (fullname,phone,email,id ))
+            direccion = %s
+        WHERE id_cliente = %s
+        """, (nombres,apellidos,celular,email,direccion,id ))
         mysql.connection.commit()
         flash('Contact updated successfully')
         return redirect(url_for('Index'))
@@ -112,7 +117,7 @@ def update_contact(id):
 @app.route('/delete/<string:id>')
 def delete_contact(id):
     cur = mysql.connection.cursor()
-    cur.execute('DELETE FROM contacts WHERE id = {0}'.format(id))
+    cur.execute('DELETE FROM Cliente WHERE id_cliente = {0}'.format(id))
     mysql.connection.commit()
     flash('Contact Removed Successfully')
     return redirect(url_for('Index'))

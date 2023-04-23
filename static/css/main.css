@@ -1,20 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;500;700&display=swap');
 *{
     margin: 0;
+    padding: 0;
+    font-family: 'Signika Negative', sans-serif;
+    transition: all 0,5s ease;
+    background-color: #000B34;
+    color: #fff;
+}
+.btn-delete{
+    color: #f86161;
 }
 .body-desc{
-    display: inline-flex;
+    height: auto;
+    display: block;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+body{
+    width: 100%;
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+}
+.title-table{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.clientes{
+    margin-top: 30px;
+    width: auto;
+    height: auto;
+}
+.tb-clientes-desc{
+    text-align: center;
+}
+.tb-clientes-desc td {
+    border: solid 1px #FFEA63;
+    padding: 10px;
+    border-radius: 5px;
 }
 input{
     margin: 5px;
 }
 .form-add{
+    width: 350px;
+    height: auto;
     margin: 30px;
     display: block;
     align-items:center;
     justify-content:center;
-    border: solid 1.5px brown;
+    border: solid 1.5px #FFEA63;
     border-radius: 5px;
 }
 button{
@@ -23,14 +59,57 @@ button{
     border-radius: 5px;
     background-color: transparent;
 }
-h1{
+.head{
     margin: 10px;
-    font-size: 20px;
+    font-size: 10px;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 .form-body{
     margin: 15px;
     display: block;
+    align-items:center;
+    justify-content: center;
+}
+.inputs-form{
+    width: 100%;
+    display: block;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.inputs-form input{
+    margin: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border: solid 1px #FFEA63;
+    border-radius: 5px;
+    outline: none;
+}
+.inputs-form select{
+    margin: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border: solid 1px #FFEA63;
+    border-radius: 5px;
+    outline: none;
+}
+.btn-form{
+    margin: 0px;
+    padding: 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
+}
+.btn-form button{
+    padding: 10px;
+    width: 100px;
+    border: solid 1px #FFEA63;
+    border-radius: 20px;
+    background-color: #FFEA63;
+    color: #000B34;
+}
+.btn-form button span{
+    background-color: transparent;
+    color: #f86161;
 }
